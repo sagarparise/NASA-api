@@ -1,77 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//   getCurrentImageOfTheDay();
-//   loadSearchHistory();
-// });
-
-// document.getElementById('search-form').addEventListener('submit', function (e) {
-//   e.preventDefault();
-//   getImageOfTheDay();
-// });
-
-// document.getElementById('search-history').addEventListener('click', function (e) {
-//   if (e.target.tagName === 'LI') {
-//       const selectedDate = e.target.textContent;
-//       getImageOfTheDay(selectedDate);
-//   }
-// });
-
-// function getCurrentImageOfTheDay() {
-//   const currentDate = new Date().toISOString().split("T")[0];
-//   console.log(currentDate);
-//   getImageData(currentDate);
-// }
-
-// function getImageOfTheDay(selectedDate) {
-//   const date = selectedDate || document.getElementById('search-input').value;
-//   getImageData(date);
-//   saveSearch(date);
-// }
-
-// function getImageData(date) {
-//   const apiKey = 'QPKkHiYsgfTCimSxyWRduc5jIgMmdu2DB46mPakc';
-//   const apiUrl = `https://api.nasa.gov/planetary/apod?date=${date}&api_key=${apiKey}`;
-
-//   fetch(apiUrl)
-//       .then(response => response.json())
-//       .then(data => {
-//         console.log(data)
-//           displayImageData(data);
-//           addSearchToHistory(date);
-//       })
-//       .catch(error => console.error('Error fetching data:', error));
-// }
-
-// function displayImageData(data) {
-//   const container = document.getElementById('current-image-container');
-//   container.innerHTML = `
-//       <h2>${data.title}</h2>
-//       <img src="${data.url}" alt="${data.title}" style="max-width: 100%;">
-//       <p>${data.explanation}</p>
-//   `;
-// }
-
-// function saveSearch(date) {
-//   let searches = JSON.parse(localStorage.getItem('searches')) || [];
-//   searches.push(date);
-//   localStorage.setItem('searches', JSON.stringify(searches));
-// }
-
-// function addSearchToHistory(date) {
-//   const historyList = document.getElementById('search-history');
-//   const listItem = document.createElement('li');
-//   listItem.textContent = date;
-//   historyList.appendChild(listItem);
-// }
-
-// function loadSearchHistory() {
-//   const searches = JSON.parse(localStorage.getItem('searches')) || [];
-//   const historyList = document.getElementById('search-history');
-//   searches.forEach(date => {
-//       const listItem = document.createElement('li');
-//       listItem.textContent = date;
-//       historyList.appendChild(listItem);
-//   });
-// }
 
 const imageContainer = document.getElementById("current-image-container");
 const searchHistory = document.getElementById("search-history");
@@ -134,7 +60,7 @@ function addDateSearchHistory(data){
 if(!existingDates.includes(data.date))
 {
   let li = document.createElement("li");
-  li.innerHTML= `${ data.date}`;
+  li.innerHTML = `${ data.date}`;
   searchHistory.appendChild(li);
   saveSearch();
 }
